@@ -1,0 +1,45 @@
+start:
+  remove extra whitespaces
+  split template into array on newline characters
+  set var ignore equal to false
+  set var depth equal to 0
+  set var else equal to false
+  for each line in template array:
+    if ignore is equal to false:
+      if line contains { #if (condition) }:
+        increment depth by 1
+        if condition evals to true:
+          delete line
+        else:
+          set var ignore equal to true
+          delete line
+      else if line contains { #endif }:
+        decrement depth by 1
+        delete line
+      else if line contains { #else }:
+        set var ignore equal to true
+        delete line
+      else:
+        keep line
+    else:
+      if line contains { #endif }:
+          decrement depth by 1
+        if var depth is greater than 1:
+          delete line
+        else:
+          set var ignore equal to false
+          delete line
+      else if line contains { #if (condition) }:
+        increment depth by 1
+        delete line
+      else if line contains { #else }:
+        if var depth is greater than 1:
+          delete line
+        else:
+          set var ignore equal to false
+          delete line
+      else:
+        delete line
+  convert template array to string
+  for each key in properties:
+    replace all instances of {{ key }} in template string with value of properties[key]
