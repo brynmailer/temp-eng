@@ -1,5 +1,4 @@
-const fs = require('fs');
-const readLine = require('readline');
+import fs from 'fs'
 
 export class Template {
   constructor(pathToTemplateFile) {
