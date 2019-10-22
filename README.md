@@ -16,7 +16,7 @@ A simple, minimal HTML templating engine.
 { #endif }
 ```
 
-##Usage
+## Usage
 ```javascript
 import { Template }from '@bryn-mailer/temp-eng';
 
