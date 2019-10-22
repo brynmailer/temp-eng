@@ -7,8 +7,8 @@ start:
   for each line in template array:
     if ignore is equal to false:
       if line contains { #if (condition) }:
-        increment depth by 1
         if condition evals to true:
+          increment depth by 1
           delete line
         else:
           set var ignore equal to true
