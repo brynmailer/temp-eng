@@ -7,11 +7,12 @@
     "dist/index.js"
   ],
   "scripts": {
-    "build": "./node_modules/.bin/babel src --out-dir dist"
+    "build": "./node_modules/.bin/babel src --out-dir dist",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/brynmailer/temp-engine.git"
+    "url": "git+https://github.com/brynmailer/temp-eng.git"
   },
   "keywords": [
     "templating",
@@ -21,12 +22,13 @@
   "author": "bryn mailer",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/brynmailer/temp-engine/issues"
+    "url": "https://github.com/brynmailer/temp-eng/issues"
   },
-  "homepage": "https://github.com/brynmailer/temp-engine#readme",
+  "homepage": "https://github.com/brynmailer/temp-eng#readme",
   "devDependencies": {
     "@babel/cli": "^7.6.4",
     "@babel/core": "^7.6.4",
-    "@babel/preset-env": "^7.6.3"
+    "@babel/preset-env": "^7.6.3",
+    "jest": "^24.9.0"
   }
 }

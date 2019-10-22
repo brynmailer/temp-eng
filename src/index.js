@@ -11,9 +11,9 @@ export class Template {
 
   generateHTML(props) {
     let html = this.resolveConditionals(this.template, props)
-      .join('\r\n');
+      .join('');
     for (let key in props) {
-      html = html.replace(new RegExp(`{{${key}}}`), props[key]);
+      html = html.replace(new RegExp(`{{ ${key} }}`), props[key]);
     }
     return html;
   }
@@ -24,12 +24,8 @@ export class Template {
     return template.filter(line => {
       if (!ignore) {
         if (line.search(/{ #if (.*) }/g) !== -1) {
-          depth++;
-          let condition = line.substring(7, line.length - 3);
-          for (let key in props) {
-            condition = condition.replace(new RegExp(key), `props.${key}`);
-          }
-          if (new Function('props', 'return ' + condition)(props)) {
+          if (new Function(Object.keys(props).join(','), 'return ' + line.substring(7, line.length - 3))(...Object.values(props))) {
+            depth++;
             return false;
           } else {
             ignore = true;
