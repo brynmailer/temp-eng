@@ -1,13 +1,13 @@
 {
   "name": "@bryn-mailer/temp-eng",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple, minimal HTML templating engine.",
   "main": "./dist/index.js",
-  "files": {
+  "files": [
     "dist/index.js"
-  },
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "./node_modules/.bin/babel src --out-dir dist"
   },
   "repository": {
     "type": "git",

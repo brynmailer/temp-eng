@@ -1,7 +1,7 @@
 const fs = require('fs');
 const readLine = require('readline');
 
-class Template {
+export class Template {
   constructor(pathToTemplateFile) {
     this.template = fs.readFileSync(pathToTemplateFile)
       .toString()
@@ -12,12 +12,9 @@ class Template {
   generateHTML(props) {
     let html = this.resolveConditionals(this.template, props)
       .join('\r\n');
-
     for (let key in props) {
       html = html.replace(new RegExp(`{{${key}}}`), props[key]);
     }
-
-    console.log(html);
     return html;
   }
 
@@ -73,9 +70,3 @@ class Template {
     });
   }
 }
-
-const template = new Template('template.html');
-template.generateHTML({
-  title: 'Title',
-  test: 1 > 0
-});
