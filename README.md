@@ -18,7 +18,7 @@ A simple, minimal HTML templating engine.
 
 ## Usage
 ```javascript
-import { Template }from '@bryn-mailer/temp-eng';
+import { Template } from '@bryn-mailer/temp-eng';
 
 const template = new Template('pathToTemplate.html');
 const html = template.generateHTML({
