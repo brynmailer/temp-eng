@@ -1,4 +1,4 @@
-# temp-engine
+# temp-eng
 A simple, minimal HTML templating engine.
 
 ## Syntax
