@@ -4,7 +4,7 @@ A simple, minimal HTML templating engine.
 ## Syntax
 ### Variable Substitution
 ```html
-{{ variable_name }}
+<div>This is a variable -> {{ variable_name }}</div>
 ```
 
 ### Conditionals
